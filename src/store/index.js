@@ -14,9 +14,8 @@ export const useStore = create((set, get) => ({
   setSearchString: (newSearch) => set(() => ({ searchString: newSearch })),
   setSearchCategory: (newSearchCategory) => set(() => ({ searchCategory: newSearchCategory})),
   setEditorCategory: (newEditorCategory) => set(() => ({ editorCategory: newEditorCategory})),
-  setCategoryList: async () => {
-    const categories = await getAllCategories();
-    return set(() => ({categoryList: categories}))
+  setCategoryList: (newCategoryList) => {
+    return set(() => ({categoryList: newCategoryList}))
   },
   addCategory: async (category) => {
     await apiAddCategory(category);
