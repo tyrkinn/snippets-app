@@ -1,3 +1,4 @@
+import React from 'react';
 import { Flex, Text, Textarea, Select, HStack, Input, Button } from '@chakra-ui/react'
 import EditorField from './EditorField'
 

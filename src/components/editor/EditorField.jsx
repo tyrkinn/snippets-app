@@ -1,4 +1,4 @@
-import { Textarea } from '@chakra-ui/react'
+import React, { Textarea } from '@chakra-ui/react'
 
 const EditorField = () => {
     return (

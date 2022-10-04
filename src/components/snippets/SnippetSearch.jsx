@@ -1,3 +1,4 @@
+import React from 'react';
 import { Input, Flex, Button } from '@chakra-ui/react'
 
 const SnippetSearch = () => {
