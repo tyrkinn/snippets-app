@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, List, ListItem } from "@chakra-ui/react";
+import { VStack, List, ListItem, Divider } from "@chakra-ui/react";
 import SnippetItem from "./SnippetItem";
 import SnippetSearch from "./SnippetSearch";
 import { useStore } from "../../store";
@@ -8,26 +8,30 @@ const SnippetList = () => {
   const snippetList = useStore(state => state.snippetList);
 
   return (
-    <Flex
+    <VStack
       minW="60%"
-      minH="250px"
+      h='full'
       rounded="lg"
-      border="1px"
-      p="10px"
-      mt="20px"
-      direction="column"
+      p={5}
+      alignItems="start"
+      bgColor="white"
+
     >
       <SnippetSearch />
-      <List>
+      <Divider borderColor='gray.400' pt={2}/>
+      <List w='full'>
         {snippetList.length !== 0  && snippetList.map(
           s => (
-            <ListItem key={s.id}>
-              <SnippetItem item={s} />
-            </ListItem>
+            <>
+              <ListItem key={s.id}>
+                <SnippetItem item={s} />
+              </ListItem>
+              <Divider py={1} borderColor='gray.200'/>
+            </>
           )
         )}
       </List>
-    </Flex>
+    </VStack>
   );
 };
 

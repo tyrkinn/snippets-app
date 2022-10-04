@@ -3,7 +3,7 @@ import { Select } from "@chakra-ui/react";
 
 const CategoryDropdown = ({ categories, setCategory, currentCategory }) => {
   return (
-    <Select placeholder="Category" w="30%">
+    <Select placeholder="Category" w="30%" >
       {categories.map((c) => (
         <option
           value={c.name}

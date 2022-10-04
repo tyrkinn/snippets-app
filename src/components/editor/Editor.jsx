@@ -2,11 +2,12 @@ import React from "react";
 import {
   Flex,
   Text,
-  Textarea,
-  Select,
   HStack,
   Input,
   Button,
+  Heading,
+  Grid,
+  GridItem
 } from "@chakra-ui/react";
 import EditorField from "./EditorField";
 import { CategoryDropdown } from "../shared";
@@ -22,28 +23,38 @@ const Editor = ({}) => {
   );
   return (
     <Flex
-      w="55%"
+      w="full"
       minH="300px"
+      h='full'
       rounded="lg"
-      border="1px"
-      p="10px"
-      mt="20px"
       direction="column"
+      bgColor="white"
+      p={5}
     >
-      <Text>Editor</Text>
+      <Grid templateRows='0.7fr 1fr 4fr 0.9fr' h='full' gap={3} >
+        <GridItem>
+          <Heading p={0} size='md'>Editor</Heading>
+        </GridItem>
+        <GridItem>
+          <HStack>
+            <CategoryDropdown
+              categories={categoryList}
+              setCategory={setEditorCategory}
+              currentCategory={editorCategory.name}
+            />
+            <Input placeholder="Snippet name..." w="70%" />
+          </HStack>
+        </GridItem>
 
-      <HStack>
-        <CategoryDropdown
-          categories={categoryList}
-          setCategory={setEditorCategory}
-          currentCategory={editorCategory.name}
-        />
-        <Input placeholder="Snippet name..." w="70%" />
-      </HStack>
+        <GridItem>
+          <EditorField />
+        </GridItem>
 
-      <EditorField />
+        <GridItem>
+          <Button colorScheme="facebook" h='full' w='full'>Add snippet</Button>
+        </GridItem>
 
-      <Button mt="10px">Add snippet</Button>
+      </Grid>
     </Flex>
   );
 };

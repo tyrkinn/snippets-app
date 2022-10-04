@@ -18,15 +18,16 @@ const SnippetSearch = () => {
     setSearchString: state.setSearchString,
   }));
   return (
-    <HStack>
+    <HStack w='full'>
       <CategoryDropdown
         categories={categoryList}
         setCategory={setSearchCategory}
         currentCategory={searchCategory}
       />
       <Input
-        placeholder="Search snippet"
+        placeholder="Search snippet..."
         value={searchString}
+        type="search"
         onChange={(e) => setSearchString(e.target.value)}
       />
     </HStack>

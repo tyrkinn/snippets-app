@@ -2,7 +2,7 @@ import React from "react";
 import { Textarea } from "@chakra-ui/react";
 
 const EditorField = () => {
-  return <Textarea mt="10px" resize="none" h="150px"></Textarea>;
+  return <Textarea placeholder="Enter code snippet..." resize="none" h='full'></Textarea>;
 };
 
 export default EditorField;
