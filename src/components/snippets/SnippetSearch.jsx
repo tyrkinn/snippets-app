@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, Flex, Button } from "@chakra-ui/react";
+import { Input, HStack } from "@chakra-ui/react";
 import { CategoryDropdown } from "../shared";
 import { useStore } from "../../store";
 
@@ -10,10 +10,10 @@ const SnippetSearch = () => {
     searchCategory: state.searchCategory,
   }));
   return (
-    <>
+    <HStack>
       <CategoryDropdown categories={categoryList} setCategory={setSearchCategory} currentCategory={searchCategory} />
       <Input placeholder="Search snippet" />
-    </>
+    </HStack>
   );
 };
 
