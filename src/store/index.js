@@ -1,29 +1,35 @@
 import create from "zustand";
-import { addCategory as apiAddCategory, getAllCategories, getAllSnippets } from '../helpers/snippets_api';
+import {
+  addCategory as apiAddCategory,
+  getAllCategories,
+  getAllSnippets,
+} from "../helpers/snippets_api";
 
 export const useStore = create((set, get) => ({
   searchCategory: null,
   editorCategory: null,
   categoryList: [],
   snippetList: [],
-  searchString: '',
+  searchString: "",
   setSnippetList: async () => {
     const snippets = await getAllSnippets();
-    set(() => ({ snippetsList: snippets }))
+    set(() => ({ snippetsList: snippets }));
   },
   setSearchString: (newSearch) => set(() => ({ searchString: newSearch })),
-  setSearchCategory: (newSearchCategory) => set(() => ({ searchCategory: newSearchCategory})),
-  setEditorCategory: (newEditorCategory) => set(() => ({ editorCategory: newEditorCategory})),
+  setSearchCategory: (newSearchCategory) =>
+    set(() => ({ searchCategory: newSearchCategory })),
+  setEditorCategory: (newEditorCategory) =>
+    set(() => ({ editorCategory: newEditorCategory })),
   setCategoryList: (newCategoryList) => {
-    return set(() => ({categoryList: newCategoryList}))
+    return set(() => ({ categoryList: newCategoryList }));
   },
   addCategory: async (category) => {
     await apiAddCategory(category);
   },
   filteredSnippets: () => {
     const { searchString, snippetList } = get();
-    return searchString.trim().length > 2 
-          ? snippetList.filter(s => s.startsWith(searchString.trim()))
-          : snippetList
-  }
+    return searchString.trim().length > 2
+      ? snippetList.filter((s) => s.startsWith(searchString.trim()))
+      : snippetList;
+  },
 }));

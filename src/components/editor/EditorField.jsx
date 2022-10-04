@@ -1,12 +1,8 @@
-import React from 'react';
-import { Textarea } from '@chakra-ui/react'
+import React from "react";
+import { Textarea } from "@chakra-ui/react";
 
 const EditorField = () => {
-    return (
-        <Textarea mt='10px' resize='none' h='150px'>
+  return <Textarea mt="10px" resize="none" h="150px"></Textarea>;
+};
 
-        </Textarea>
-    )
-}
-
-export default EditorField
+export default EditorField;

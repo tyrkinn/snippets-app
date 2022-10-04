@@ -1,4 +1,3 @@
 import SnippetList from "./SnippetList";
 
-
-export { SnippetList }
+export { SnippetList };

@@ -13,11 +13,13 @@ import { CategoryDropdown } from "../shared";
 import { useStore } from "../../store";
 
 const Editor = ({}) => {
-  const { categoryList, setEditorCategory, editorCategory } = useStore((state) => ({
-    categoryList: state.categoryList,
-    setEditorCategory: state.setEditorCategory,
-    editorCategory: state.setEditorCategory,
-  }));
+  const { categoryList, setEditorCategory, editorCategory } = useStore(
+    (state) => ({
+      categoryList: state.categoryList,
+      setEditorCategory: state.setEditorCategory,
+      editorCategory: state.setEditorCategory,
+    })
+  );
   return (
     <Flex
       w="55%"
