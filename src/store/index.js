@@ -11,9 +11,8 @@ export const useStore = create((set, get) => ({
   categoryList: [],
   snippetList: [],
   searchString: "",
-  setSnippetList: async () => {
-    const snippets = await getAllSnippets();
-    set(() => ({ snippetsList: snippets }));
+  setSnippetList: (newSnippetList) => {
+    set(() => ({ snippetList: newSnippetList }));
   },
   setSearchString: (newSearch) => set(() => ({ searchString: newSearch })),
   setSearchCategory: (newSearchCategory) =>

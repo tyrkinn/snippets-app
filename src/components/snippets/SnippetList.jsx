@@ -1,9 +1,12 @@
 import React from "react";
-import { Flex } from "@chakra-ui/react";
+import { Flex, List, ListItem } from "@chakra-ui/react";
 import SnippetItem from "./SnippetItem";
 import SnippetSearch from "./SnippetSearch";
+import { useStore } from "../../store";
 
 const SnippetList = () => {
+  const snippetList = useStore(state => state.snippetList);
+
   return (
     <Flex
       minW="60%"
@@ -15,7 +18,15 @@ const SnippetList = () => {
       direction="column"
     >
       <SnippetSearch />
-      <SnippetItem />
+      <List>
+        {snippetList.length !== 0  && snippetList.map(
+          s => (
+            <ListItem key={s.id}>
+              <SnippetItem item={s} />
+            </ListItem>
+          )
+        )}
+      </List>
     </Flex>
   );
 };
