@@ -9,7 +9,6 @@ const CategoryDropdown = ({ categories, setCategory, currentCategory }) => {
           {c.name}
         </option>
       ))}
-        <option value="none">None</option>
     </Select>
   );
 };
