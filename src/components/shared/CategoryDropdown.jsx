@@ -1,9 +1,9 @@
 import React from "react";
 import { Select } from "@chakra-ui/react";
 
-const CategoryDropdown = ({ categories, setCategory }) => {
+const CategoryDropdown = ({ categories, setCategory, currentCategory }) => {
   return (
-    <Select placeholder="Category" w="30%">
+    <Select placeholder="Category" w="30%" value={currentCategory} >
       {categories.map((c) => (
         <option value={c.name} key={c.id} onClick={() => setCategory(c)}>
           {c.name}
@@ -12,3 +12,5 @@ const CategoryDropdown = ({ categories, setCategory }) => {
     </Select>
   );
 };
+
+export default CategoryDropdown;

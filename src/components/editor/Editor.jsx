@@ -1,24 +1,49 @@
-import React from 'react';
-import { Flex, Text, Textarea, Select, HStack, Input, Button } from '@chakra-ui/react'
-import EditorField from './EditorField'
+import React from "react";
+import {
+  Flex,
+  Text,
+  Textarea,
+  Select,
+  HStack,
+  Input,
+  Button,
+} from "@chakra-ui/react";
+import EditorField from "./EditorField";
+import { CategoryDropdown } from "../shared";
+import { useStore } from "../../store";
 
-const Editor = ( {  } ) => {
-    return(
-        <Flex w='55%' minH='300px' rounded='lg' border='1px' p='10px' mt='20px' direction='column'>
-            <Text>Editor</Text>
+const Editor = ({}) => {
+  const { categoryList, setEditorCategory, editorCategory } = useStore((state) => ({
+    categoryList: state.categoryList,
+    setEditorCategory: state.setEditorCategory,
+    editorCategory: state.setEditorCategory,
+  }));
+  return (
+    <Flex
+      w="55%"
+      minH="300px"
+      rounded="lg"
+      border="1px"
+      p="10px"
+      mt="20px"
+      direction="column"
+    >
+      <Text>Editor</Text>
 
-            <HStack>
-                <Select placeholder='Category' w='30%'>
-                    <option value='python'>python</option>                
-                </Select>
-                <Input placeholder='Snippet name...' w='70%' />
-            </HStack> 
+      <HStack>
+        <CategoryDropdown
+          categories={categoryList}
+          setCategory={setEditorCategory}
+          currentCategory={editorCategory.name}
+        />
+        <Input placeholder="Snippet name..." w="70%" />
+      </HStack>
 
-            <EditorField/>
+      <EditorField />
 
-            <Button mt='10px'>Add snippet</Button>
-        </Flex>
-    )
-}
+      <Button mt="10px">Add snippet</Button>
+    </Flex>
+  );
+};
 
-export default Editor
+export default Editor;
