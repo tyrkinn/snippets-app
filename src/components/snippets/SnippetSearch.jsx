@@ -18,7 +18,7 @@ const SnippetSearch = () => {
     setSearchString: state.setSearchString,
   }));
   return (
-    <HStack w='full'>
+    <HStack w="full">
       <CategoryDropdown
         categories={categoryList}
         setCategory={setSearchCategory}

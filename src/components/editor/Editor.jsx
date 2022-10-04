@@ -7,7 +7,7 @@ import {
   Button,
   Heading,
   Grid,
-  GridItem
+  GridItem,
 } from "@chakra-ui/react";
 import EditorField from "./EditorField";
 import { CategoryDropdown } from "../shared";
@@ -25,15 +25,17 @@ const Editor = ({}) => {
     <Flex
       w="full"
       minH="300px"
-      h='full'
+      h="full"
       rounded="lg"
       direction="column"
       bgColor="white"
       p={5}
     >
-      <Grid templateRows='0.7fr 1fr 4fr 0.9fr' h='full' gap={3} >
+      <Grid templateRows="0.7fr 1fr 4fr 0.9fr" h="full" gap={3}>
         <GridItem>
-          <Heading p={0} size='md'>Editor</Heading>
+          <Heading p={0} size="md">
+            Editor
+          </Heading>
         </GridItem>
         <GridItem>
           <HStack>
@@ -51,9 +53,10 @@ const Editor = ({}) => {
         </GridItem>
 
         <GridItem>
-          <Button colorScheme="facebook" h='full' w='full'>Add snippet</Button>
+          <Button colorScheme="facebook" h="full" w="full">
+            Add snippet
+          </Button>
         </GridItem>
-
       </Grid>
     </Flex>
   );

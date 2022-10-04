@@ -9,9 +9,11 @@ const SnippetItem = ({ item }) => {
       py={3}
       justifyContent="space-between"
       w="full"
-      _hover={{background: "gray.200"}}
+      _hover={{ background: "gray.200" }}
     >
-      <Text fontSize='md' fontWeight='bold'>{item.name}</Text>
+      <Text fontSize="md" fontWeight="bold">
+        {item.name}
+      </Text>
       <Text>{item.category}</Text>
     </HStack>
   );

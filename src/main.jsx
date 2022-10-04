@@ -8,15 +8,15 @@ import App from "./App";
 const theme = extendTheme({
   styles: {
     global: {
-      'body': {
-        background: 'gray.200'
+      body: {
+        background: "gray.200",
       },
-      'html,body,#root': {
-        height: '100vh'
-      }
-    }
-  }
-})
+      "html,body,#root": {
+        height: "100vh",
+      },
+    },
+  },
+});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ChakraProvider theme={theme}>
