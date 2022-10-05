@@ -38,7 +38,7 @@ const App = () => {
       h="full"
       templateRows="repeat(2, 1fr)"
       templateColumns="repeat(2, 1fr)"
-      gap={4}
+      gap={8} 
       p={5}
     >
       <GridItem colSpan={2}>

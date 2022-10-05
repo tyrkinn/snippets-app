@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Flex,
-  Text,
   HStack,
   Input,
   Button,
@@ -31,7 +30,7 @@ const Editor = ({}) => {
       bgColor="white"
       p={5}
     >
-      <Grid templateRows="0.7fr 1fr 4fr 0.9fr" h="full" gap={3}>
+      <Grid templateRows="0.4fr 0.7fr 4fr 0.9fr" h="full" gap={5}>
         <GridItem>
           <Heading p={0} size="md">
             Editor
@@ -53,7 +52,7 @@ const Editor = ({}) => {
         </GridItem>
 
         <GridItem>
-          <Button colorScheme="facebook" h="full" w="full">
+          <Button colorScheme="telegram" h="full" w="full">
             Add snippet
           </Button>
         </GridItem>
