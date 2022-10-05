@@ -5,28 +5,30 @@ import { useStore } from "../../store";
 export const CategoryAddField = () => {
   const [input, setInput] = useState("");
 
-  const toast = useToast({ position: 'top-right', isClosable: true});
+  const toast = useToast({ position: "top-right", isClosable: true });
 
-  const {addCategory, updateCategoryList} = useStore(state => ({ addCategory: state.addCategory, updateCategoryList: state.updateCategoryList }));
+  const { addCategory, updateCategoryList } = useStore((state) => ({
+    addCategory: state.addCategory,
+    updateCategoryList: state.updateCategoryList,
+  }));
 
   const onAddCategory = async () => {
-
     const tinp = input.trim();
 
     if (tinp.length !== 0) {
-      const res = await addCategory({ name: tinp })
+      const res = await addCategory({ name: tinp });
       if (res) {
-        toast({ status: 'success', title: 'Successfully added new category'});
+        toast({ status: "success", title: "Successfully added new category" });
       } else {
-        toast({ status: 'error', title: "Can't add category. Error occured"})
+        toast({ status: "error", title: "Can't add category. Error occured" });
       }
       updateCategoryList();
     } else {
-      toast({ status: 'error', title: "Input should not be empty"});
+      toast({ status: "error", title: "Input should not be empty" });
     }
 
-    setInput('');
-  }
+    setInput("");
+  };
 
   return (
     <HStack>

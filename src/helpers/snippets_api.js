@@ -1,4 +1,11 @@
-import { collection, getDocs, getDoc, addDoc, doc, deleteDoc } from "firebase/firestore/lite";
+import {
+  collection,
+  getDocs,
+  getDoc,
+  addDoc,
+  doc,
+  deleteDoc,
+} from "firebase/firestore/lite";
 import firestore from "./firebase";
 
 export const getAllSnippets = async () => {
@@ -13,31 +20,31 @@ export const addSnippet = async (snippet) => {
   try {
     await addDoc(coll, snippet);
     return true;
-  } catch(e) {
+  } catch (e) {
     console.log(e);
     return false;
   }
 };
 
 export const deleteCategory = async (categoryId) => {
-  const cat = doc(firestore, 'categories', categoryId);
+  const cat = doc(firestore, "categories", categoryId);
   try {
     await deleteDoc(cat);
     return true;
   } catch {
     return false;
   }
-}
+};
 
 export const deleteSnippet = async (snippetId) => {
-  const snip = doc(firestore, 'snippets', snippetId);
+  const snip = doc(firestore, "snippets", snippetId);
   try {
     await deleteDoc(snip);
     return true;
   } catch {
     return false;
   }
-}
+};
 
 export const addCategory = async (category) => {
   const coll = collection(firestore, "categories");

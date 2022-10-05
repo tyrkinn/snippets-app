@@ -9,13 +9,19 @@ const CategoryDropdown = ({ categories, setCategory }) => {
       placeholder="Category"
       w="30%"
       onChange={(e) => {
-        setCategory(e.target.value)
-        setSelectValue(e.target.value)
+        setCategory(e.target.value);
+        setSelectValue(e.target.value);
       }}
       value={selectValue}
     >
       {categories.map((c) => (
-        <option value={c.name} key={c.id} onClick={() => {setCategory(c)}}>
+        <option
+          value={c.name}
+          key={c.id}
+          onClick={() => {
+            setCategory(c);
+          }}
+        >
           {c.name}
         </option>
       ))}

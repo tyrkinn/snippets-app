@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Grid, GridItem } from "@chakra-ui/react";
 import { useStore } from "./store";
 import { useEffect } from "react";
-import { CategoryList, Editor, SnippetList } from './components';
+import { CategoryList, Editor, SnippetList } from "./components";
 
 const App = () => {
   const { categoryList, updateSnippetList, updateCategoryList } = useStore(

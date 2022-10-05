@@ -4,17 +4,13 @@ import { CategoryDropdown } from "../shared";
 import { useStore } from "../../store";
 
 const SnippetSearch = () => {
-  const {
-    categoryList,
-    setSearchCategory,
-    searchString,
-    setSearchString,
-  } = useStore((state) => ({
-    categoryList: state.categoryList,
-    setSearchCategory: state.setSearchCategory,
-    searchString: state.searchString,
-    setSearchString: state.setSearchString,
-  }));
+  const { categoryList, setSearchCategory, searchString, setSearchString } =
+    useStore((state) => ({
+      categoryList: state.categoryList,
+      setSearchCategory: state.setSearchCategory,
+      searchString: state.searchString,
+      setSearchString: state.setSearchString,
+    }));
   return (
     <HStack w="full">
       <CategoryDropdown

@@ -23,7 +23,7 @@ export const useStore = create((set, get) => ({
   },
   updateSnippetList: async () => {
     const snippets = await getAllSnippets();
-    set(() => ({ snippetList: snippets}))
+    set(() => ({ snippetList: snippets }));
   },
   addSnippet: async (snippet) => {
     const res = await apiAddSnippet(snippet);
@@ -38,7 +38,7 @@ export const useStore = create((set, get) => ({
     return set(() => ({ categoryList: newCategoryList }));
   },
   updateCategoryList: async () => {
-    const categories = await getAllCategories(); 
+    const categories = await getAllCategories();
     return set(() => ({ categoryList: categories }));
   },
   addCategory: async (category) => {
@@ -54,11 +54,14 @@ export const useStore = create((set, get) => ({
     return res;
   },
   filteredSnippets: () => {
-    const { searchString, snippetList, searchCategory  } = get();
-    const bySearchString = searchString.trim().length > 1
-      ? snippetList.filter((s) => s.name.startsWith(searchString.trim()))
-      : snippetList;
-    const byCategory = searchCategory ? bySearchString.filter(s => s.category === searchCategory) : bySearchString;
+    const { searchString, snippetList, searchCategory } = get();
+    const bySearchString =
+      searchString.trim().length > 1
+        ? snippetList.filter((s) => s.name.startsWith(searchString.trim()))
+        : snippetList;
+    const byCategory = searchCategory
+      ? bySearchString.filter((s) => s.category === searchCategory)
+      : bySearchString;
     return byCategory;
   },
 }));

@@ -3,7 +3,10 @@ import { Textarea } from "@chakra-ui/react";
 import { useStore } from "../../store";
 
 const EditorField = () => {
-  const { editorValue, setEditorValue } = useStore(state => ({ editorValue: state.editorValue, setEditorValue: state.setEditorValue }));
+  const { editorValue, setEditorValue } = useStore((state) => ({
+    editorValue: state.editorValue,
+    setEditorValue: state.setEditorValue,
+  }));
 
   return (
     <Textarea
@@ -11,7 +14,7 @@ const EditorField = () => {
       resize="none"
       h="full"
       value={editorValue}
-      onChange={e => setEditorValue(e.target.value)}
+      onChange={(e) => setEditorValue(e.target.value)}
     ></Textarea>
   );
 };

@@ -5,7 +5,6 @@ import SnippetSearch from "./SnippetSearch";
 import { useStore } from "../../store";
 
 const SnippetList = () => {
-
   const snippetList = useStore((state) => state.filteredSnippets);
   const snippetListValue = snippetList();
 
