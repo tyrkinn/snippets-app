@@ -1,13 +1,14 @@
 import React from "react";
 import { Select } from "@chakra-ui/react";
+import { useState } from "react";
 
 const CategoryDropdown = ({ categories, setCategory, currentCategory }) => {
+  const [selectValue, setSelectValue] = useState(categories[0]?.name || '') 
   return (
-    <Select placeholder="Category" w="30%">
+    <Select placeholder="Category" w="30%" onChange={e => setSelectValue(e.target.value)} value={selectValue}>
       {categories.map((c) => (
         <option
           value={c.name}
-          selected={c.name === currentCategory}
           key={c.id}
           onClick={() => setCategory(c)}
         >
