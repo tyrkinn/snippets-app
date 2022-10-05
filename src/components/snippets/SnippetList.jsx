@@ -5,7 +5,9 @@ import SnippetSearch from "./SnippetSearch";
 import { useStore } from "../../store";
 
 const SnippetList = () => {
-  const snippetList = useStore((state) => state.snippetList);
+
+  const snippetList = useStore((state) => state.filteredSnippets);
+  const snippetListValue = snippetList();
 
   return (
     <VStack
@@ -15,16 +17,17 @@ const SnippetList = () => {
       p={5}
       alignItems="start"
       bgColor="white"
+      shadow="md"
     >
       <SnippetSearch />
       <Divider borderColor="gray.400" pt={2} />
-      <List w="full">
-        {snippetList.length !== 0 &&
-          snippetList.map((s) => (
-              <ListItem key={s.id}>
-                <SnippetItem item={s} />
-                <Divider py={1} borderColor="gray.200" />
-              </ListItem>
+      <List w="full" overflowY="scroll">
+        {snippetListValue.length !== 0 &&
+          snippetListValue.map((s) => (
+            <ListItem key={s.id}>
+              <SnippetItem item={s} />
+              <Divider py={1} borderColor="gray.200" />
+            </ListItem>
           ))}
       </List>
     </VStack>
