@@ -1,34 +1,21 @@
 import React from "react";
 import { Container, Grid, GridItem } from "@chakra-ui/react";
-import SnippetList from "./components/snippets/SnippetList";
-import Editor from "./components/editor/Editor";
-import CategoryList from "./components/category/CategoryList";
 import { useStore } from "./store";
 import { useEffect } from "react";
-import { getAllCategories, getAllSnippets } from "./helpers/snippets_api";
+import { CategoryList, Editor, SnippetList } from './components';
 
 const App = () => {
-  const { categoryList, setCategoryList, setSnippetList } = useStore(
+  const { categoryList, updateSnippetList, updateCategoryList } = useStore(
     (state) => ({
       categoryList: state.categoryList,
-      setCategoryList: state.setCategoryList,
-      setSnippetList: state.setSnippetList,
+      updateSnippetList: state.updateSnippetList,
+      updateCategoryList: state.updateCategoryList,
     })
   );
 
-  const getCategories = async () => {
-    const newCategories = await getAllCategories();
-    setCategoryList(newCategories);
-  };
-
-  const getSnippets = async () => {
-    const snippets = await getAllSnippets();
-    setSnippetList(snippets);
-  };
-
   useEffect(() => {
-    getCategories();
-    getSnippets();
+    updateSnippetList();
+    updateCategoryList();
   }, []);
 
   return (
@@ -38,16 +25,16 @@ const App = () => {
       h="full"
       templateRows="repeat(2, 1fr)"
       templateColumns="repeat(2, 1fr)"
-      gap={8} 
+      gap={8}
       p={5}
     >
-      <GridItem colSpan={2}>
+      <GridItem colSpan={2} h="full" overflow="hidden">
         <SnippetList />
       </GridItem>
-      <GridItem rowStart={2}>
+      <GridItem rowStart={2} h="full" overflow="hidden">
         <Editor />
       </GridItem>
-      <GridItem rowStart={2}>
+      <GridItem rowStart={2} h="full" overflow="hidden">
         <CategoryList categories={categoryList} />
       </GridItem>
     </Container>
