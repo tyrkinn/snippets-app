@@ -21,12 +21,10 @@ const SnippetList = () => {
       <List w="full">
         {snippetList.length !== 0 &&
           snippetList.map((s) => (
-            <>
               <ListItem key={s.id}>
                 <SnippetItem item={s} />
+                <Divider py={1} borderColor="gray.200" />
               </ListItem>
-              <Divider py={1} borderColor="gray.200" />
-            </>
           ))}
       </List>
     </VStack>
