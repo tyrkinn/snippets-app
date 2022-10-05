@@ -9,7 +9,7 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        background: "gray.200",
+        background: "blackAlpha.100",
       },
       "html,body,#root": {
         height: "100vh",
