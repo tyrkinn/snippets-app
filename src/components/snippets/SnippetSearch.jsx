@@ -7,13 +7,11 @@ const SnippetSearch = () => {
   const {
     categoryList,
     setSearchCategory,
-    searchCategory,
     searchString,
     setSearchString,
   } = useStore((state) => ({
     categoryList: state.categoryList,
     setSearchCategory: state.setSearchCategory,
-    searchCategory: state.searchCategory,
     searchString: state.searchString,
     setSearchString: state.setSearchString,
   }));
@@ -22,7 +20,6 @@ const SnippetSearch = () => {
       <CategoryDropdown
         categories={categoryList}
         setCategory={setSearchCategory}
-        currentCategory={searchCategory}
       />
       <Input
         placeholder="Search snippet..."
